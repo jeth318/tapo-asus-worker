@@ -45,7 +45,7 @@ def privacyWorker():
         print("Will toggle privace off")
         privacyMode = "off"
         dispatchPrivacyToggle("off")
-    time.sleep(10)
+    time.sleep(60)
     privacyWorker()
 
 
