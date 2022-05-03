@@ -1,3 +1,5 @@
+#This is for standalone use without the automator. Inactive by default.
+
 import os
 import time
 from dotenv import dotenv_values, load_dotenv
@@ -46,8 +48,8 @@ def privacyWorker():
         privacyMode = "off"
         dispatchPrivacyToggle("off")
     time.sleep(60)
-    privacyWorker()
+    #privacyWorker()
 
 
 # Initialize
-privacyWorker()
+#privacyWorker()
