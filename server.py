@@ -8,7 +8,7 @@ app = Flask(__name__)
 port = os.environ["PORT"]
 host = os.environ["HOST"]
 
-@app.route('/state', methods=['POST'])
+@app.route('/privacy', methods=['POST'])
 def index():
     message = ""
 
