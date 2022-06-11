@@ -1,9 +1,8 @@
 import os
 import time
 from dotenv import dotenv_values, load_dotenv
-from pytapo import Tapo
 from tapo_integration import dispatchPrivacyToggle
-from rt_ax58u import RouterInfo
+from router_info import RouterInfo
 
 
 load_dotenv()
@@ -24,26 +23,24 @@ camera_2 = Tapo(cam2Ip, username, password)
 router = RouterInfo(routerIp, routerUser, routerPass)
 
 try:
-    privacyMode = camera_1.getPrivacyMode()['enabled']
+    privacy = camera_1.getPrivacyMode()['enabled']
 except Exception as e:
-    privacyMode = "on"
-    print("Could not get initial privacyMode. Will set to enabled.")
-
-print(privacyMode)
+    print("Could not get the current privacy state. Will set to enabled.")
+    privacy = "on"
 
 
 def privacyWorker():
-    global privacyMode
+    global privacy
     global macTrigger
     isConnected = router.findConnectedDevice(macTrigger)
 
-    if isConnected and privacyMode != "on":
-        print("Will toggle privace on")
-        privacyMode = "on"
+    if isConnected and privacy != "on":
+        print("Will toggle privacy on")
+        privacy = "on"
         dispatchPrivacyToggle("on")
-    elif not isConnected and privacyMode != "off":
+    elif not isConnected and privacy != "off":
         print("Will toggle privace off")
-        privacyMode = "off"
+        privacy = "off"
         dispatchPrivacyToggle("off")
     time.sleep(60)
     privacyWorker()

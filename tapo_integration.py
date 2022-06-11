@@ -1,5 +1,4 @@
 from dotenv import dotenv_values, load_dotenv
-from pytapo import Tapo
 import os
 
 load_dotenv()
@@ -36,7 +35,6 @@ def togglePrivacy(state):
 camera_1 = Tapo(cam1Ip, username, password)
 # Kitchen
 camera_2 = Tapo(cam2Ip, username, password)
-
 
 
 def dispatchPrivacyToggle(state):
