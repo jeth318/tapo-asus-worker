@@ -1,9 +1,10 @@
+import os
 from flask import Flask, jsonify, request, make_response
 from dotenv import load_dotenv
-import os
-from tapo_integration import dispatchPrivacyToggle
+from tapo_resource import dispatchPrivacyToggle
 
 load_dotenv()
+
 app = Flask(__name__)
 port = os.environ["PORT"]
 host = os.environ["HOST"]
@@ -44,4 +45,4 @@ def buildErrorResponse(message):
     )
 
 
-app.run(host="localhost", port=port)
+app.run(host="0.0.0.0", port=port)

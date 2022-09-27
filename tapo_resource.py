@@ -41,5 +41,3 @@ def dispatchPrivacyToggle(state):
     camera_1.performRequest(togglePrivacy(state))
     camera_2.performRequest(togglePrivacy(state))
 
-
-# dispatchPrivacyToggle("on")

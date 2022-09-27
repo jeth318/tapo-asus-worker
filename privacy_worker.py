@@ -4,7 +4,6 @@ import os
 import time
 from dotenv import dotenv_values, load_dotenv
 from tapo_integration import dispatchPrivacyToggle
-from router_info import RouterInfo
 
 
 load_dotenv()
